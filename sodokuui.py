@@ -65,13 +65,14 @@ class SodokuUI(Frame):
 					x = MARGIN + (j+0.5) * SIDE
 					y = MARGIN + (i+0.5) * SIDE
 					if answer == self.game.start_puzzle[i][j]:
-						self.canvas.create_rectangle(x - SIDE/2, y - SIDE/2, x + SIDE/2, y + SIDE/2, fill="grey")
+						self.canvas.create_rectangle(x - SIDE/2, y - SIDE/2, x + SIDE/2, y + SIDE/2, tags="numbers", fill="grey")
 						self.canvas.create_text(x, y, text=answer, tags="numbers", fill="white")
 					else:
-						self.canvas.create_rectangle(x - SIDE/2, y - SIDE/2, x + SIDE/2, y + SIDE/2, fill="seashell")
+						self.canvas.create_rectangle(x - SIDE/2, y - SIDE/2, x + SIDE/2, y + SIDE/2, tags="numbers", fill="seashell")
 						self.canvas.create_text(x, y, text=answer, tags="numbers", fill="black")
 
 		self.__draw_grid()
+		self.__draw_cursor()
 
 	def __clear_answers(self):
 		self.game.start()
